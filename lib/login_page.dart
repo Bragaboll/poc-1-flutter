@@ -1,4 +1,3 @@
-import 'package:app_login/switch_widget.dart';
 
 import 'package:flutter/material.dart';
 
@@ -10,128 +9,75 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
+  String email = '';
+  String password = '';
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      drawer: Drawer(
-        child: Column(
-          children: [
-            UserAccountsDrawerHeader(
-                currentAccountPicture: ClipOval(
-                  child: Image.asset('assets/br.jpg'),
-                ),
-                accountName: const Text('Luiz Braga'),
-                accountEmail: const Text('luiz@hotmail.com')),
-            Padding(
-              padding: const EdgeInsets.all(10),
-              child: Column(
-                children: [
-                  ListTile(
-                    leading: const Icon(Icons.home),
-                    trailing: const Text(
-                      'Menu',
-                      style: TextStyle(fontSize: 18),
-                    ),
-                    onTap: () {
-                      Navigator.of(context).pop('/home');
-                    },
-                  ),
-                ],
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.all(10),
-              child: Column(
-                children: [
-                  ListTile(
-                    leading: const Icon(Icons.home),
-                    trailing: const Text(
-                      'Sair',
-                      style: TextStyle(fontSize: 18),
-                    ),
-                    onTap: () {
-                      Navigator.of(context).pushReplacementNamed('/');
-                    },
-                  ),
-                ],
-              ),
-            ),
-          ],
-        ),
-      ),
       appBar: AppBar(
-        // ignore: prefer_const_literals_to_create_immutables
-        actions: [
-          const SwitchWidget(),
-        ],
         title: const Center(
           child: Text(
-            'LovePepole',
+            'Login',
             style: TextStyle(fontSize: 25),
           ),
         ),
       ),
+      backgroundColor: Colors.purple[100],
       body: SingleChildScrollView(
         child: Column(
           children: [
             Padding(
               padding: const EdgeInsets.only(top: 60),
-              child: Center(
-                child: Image.asset('assets/logo.png'),
+              child: Center(child: Image.asset('assets/logo.png')),
+            ),
+            Card(
+              margin: const EdgeInsets.only(left: 15, right: 15),
+              child: TextField(
+                keyboardType: TextInputType.emailAddress,
+                onChanged: (text) {
+                  email = text;
+                },
+                decoration: const InputDecoration(
+                    labelText: 'Email',
+                    labelStyle: TextStyle(
+                        fontSize: 18,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.purple),
+                    border: OutlineInputBorder()),
               ),
             ),
-            const Text(
-              'Voce esta na LovePeople',
-              style: TextStyle(
-                  fontSize: 27,
-                  color: Colors.purple,
-                  fontWeight: FontWeight.bold),
+            const SizedBox(
+              height: 15,
             ),
-            const Text(
-              'Seja muito bem vindo!!!',
-              style: TextStyle(
-                  fontSize: 24,
-                  color: Colors.purple,
-                  fontWeight: FontWeight.bold),
+            Card(
+              margin: const EdgeInsets.only(left: 15, right: 15),
+              child: TextField(
+                obscureText: true,
+                onChanged: (text) {
+                  password = text;
+                },
+                decoration: const InputDecoration(
+                    labelText: 'Password',
+                    labelStyle: TextStyle(
+                        fontSize: 18,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.purple),
+                    border: OutlineInputBorder()),
+              ),
             ),
             const SizedBox(
-              height: 40,
+              height: 30,
             ),
-            Column(
-              children: [
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  children: [
-                    Container(
-                      height: 60,
-                      width: 90,
-                      decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(20),
-                          color: Colors.purple),
-                      child: Image.asset('assets/cor.png'),
-                    ),
-                    Container(
-                      height: 60,
-                      width: 90,
-                      decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(20),
-                          color: Colors.purple),
-                      child: Image.asset('assets/cor.png'),
-                    ),
-                    Container(
-                      height: 60,
-                      width: 90,
-                      decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(20),
-                          color: Colors.purple),
-                      child: Image.asset('assets/cor.png'),
-                    ),
-                  ],
-                ),
-                const SizedBox(
-                  height: 30,
-                ),
-              ],
+            ElevatedButton(
+              onPressed: () {
+                if (email == 'luizao@hotmail.com' && password == '123') {
+                  Navigator.of(context).pushReplacementNamed('/home');
+                }
+              },
+              child: const Text(
+                'Entrar',
+                style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+              ),
             ),
           ],
         ),
