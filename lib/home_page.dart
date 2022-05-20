@@ -56,7 +56,7 @@ class _HomePageState extends State<HomePage> {
       ),
       appBar: AppBar(
         actions: [
-          CustonSwicth(),
+          SwitchWidget(),
         ],
         title: const Center(
           child: Text('Home Page'),
