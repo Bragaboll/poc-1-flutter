@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 
 class LoginPage extends StatefulWidget {
@@ -70,7 +69,7 @@ class _LoginPageState extends State<LoginPage> {
             ),
             ElevatedButton(
               onPressed: () {
-                if (email == 'luizao@hotmail.com' && password == '123') {
+                if (email == 'lovepeople@gmail.com' && password == '123') {
                   Navigator.of(context).pushReplacementNamed('/home');
                 }
               },

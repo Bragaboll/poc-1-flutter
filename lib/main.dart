@@ -24,6 +24,7 @@ class MyApp extends StatelessWidget {
                   : Brightness.light,
               primarySwatch: Colors.purple,
             ),
+            debugShowCheckedModeBanner: false,
             initialRoute: '/',
             routes: {
               '/': (context) => const LoginPage(),

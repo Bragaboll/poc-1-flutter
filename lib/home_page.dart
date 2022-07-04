@@ -17,22 +17,27 @@ class _HomePageState extends State<HomePage> {
           children: [
             UserAccountsDrawerHeader(
               currentAccountPicture:
-                  ClipOval(child: Image.asset('assets/br.png')),
-              accountName: const Text('Luiz Braga'),
-              accountEmail: const Text('luiz@hotmail.com'),
+                  ClipOval(child: Image.asset('assets/logo.png')),
+              accountName: const Text('Love People'),
+              accountEmail: const Text('lovepeople.com.br'),
             ),
             Padding(
               padding: const EdgeInsets.all(10),
               child: Column(
                 children: [
                   ListTile(
-                    leading: const Icon(Icons.home),
+                    leading: const Icon(Icons.menu),
                     title: const Text(
                       'Menu',
                       style: TextStyle(fontSize: 20),
                     ),
+                    subtitle: Text(
+                      'Curso LovePeople',
+                      style: TextStyle(
+                          color: Colors.purple, fontWeight: FontWeight.bold),
+                    ),
                     onTap: () {
-                      Navigator.of(context).pop('/');
+                      Navigator.of(context).pop();
                     },
                   ),
                 ],
@@ -41,7 +46,7 @@ class _HomePageState extends State<HomePage> {
             Padding(
               padding: const EdgeInsets.all(10),
               child: ListTile(
-                leading: const Icon(Icons.home),
+                leading: const Icon(Icons.login),
                 title: const Text(
                   'Sair',
                   style: TextStyle(fontSize: 20),
@@ -70,7 +75,7 @@ class _HomePageState extends State<HomePage> {
             children: [
               Image.asset('assets/logo.png'),
               const Text(
-                'Somos a Lovepeople',
+                'Somos a LovePeople',
                 style: TextStyle(
                     fontSize: 30,
                     color: Colors.purple,
